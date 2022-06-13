@@ -1,3 +1,25 @@
+# Documentacion
+
+Proyecto de prueba tecnica realizado por daniel martinez vargas para la empresa Usuaria Sistemas Inteligentes en Red;
+el proyecto es realizado con angular typescript y el framework angular material ademas de la utilizacion de las 
+grillas responsivas de bootstrap; para correr el proyecto debe tener creado un ambiente con las siguientes caracteristicas:
+
+Angular CLI: 10.2.4
+Node: 10.19.0
+@angular-devkit/architect       0.1002.4
+@angular-devkit/build-angular   0.1002.4
+@angular-devkit/core            10.2.4
+@angular-devkit/schematics      10.2.4
+@angular/cdk                    10.2.7
+@angular/cli                    10.2.4
+@angular/material               10.2.7
+@schematics/angular             10.2.4
+@schematics/update              0.1002.4
+rxjs                            6.6.7
+typescript                      4.0.8
+
+una vez descargado el proyecto debe compilarlo y correrlo con el comando ng serve como se especifica mas abajo
+
 # PruebaTecnica
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.4.
