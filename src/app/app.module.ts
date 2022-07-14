@@ -14,13 +14,16 @@ import { FormComponent } from './componentes/form/form.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import { LoginComponent } from './login/login.component';
+import { JwtModule } from '@auth0/angular-jwt';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
-    FormComponent
+    FormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,14 @@ import {MatInputModule} from '@angular/material/input';
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: null,
+        allowedDomains: [],
+        disallowedRoutes: [],
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

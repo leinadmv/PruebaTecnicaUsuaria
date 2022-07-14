@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  JSON: 'https://jsonplaceholder.typicode.com/'
+  JSON: 'https://jsonplaceholder.typicode.com/',
+  KEYJWT: 'Keyauthlogin'
 };
 
 /*

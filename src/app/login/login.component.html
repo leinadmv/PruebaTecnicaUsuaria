@@ -1,0 +1,41 @@
+<div class="row login">
+
+  <div class="col-4"></div>
+
+  <div class="col-4">
+
+    <form class="row" [formGroup]="loginForm" (ngSubmit)="loginAuth(loginForm)" style="min-height: 60%;">
+      <h1>Bienvenido</h1>
+      <br>
+      <mat-form-field class="col-12"  appearance="fill">
+          <mat-label>Nombre de usuario</mat-label>
+          <input appBlockCopyPaste matInput type="text" placeholder="Escribe tu nombre de usuario" formControlName="user"  required>
+          <mat-error *ngIf="error.user.errors"><span *ngIf="error.user.errors.required">¡Advertencia! Este campo es requerido</span></mat-error>
+          <mat-error *ngIf="error.user.errors"><span *ngIf="error.user.errors.minlength">¡Aún falta! Recibimos mínimo 3 caracteres</span></mat-error>
+          <mat-error *ngIf="error.user.errors"><span *ngIf="error.user.errors.maxlength">¡Cuidado! Solo puedes tener un máximo de 50 caracteres</span></mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-12"  appearance="fill">
+          <mat-label>Contraseña</mat-label>
+          <input matInput appBlockCopyPaste (keydown.enter)="loginAuth(loginForm)" [type]="hide ? 'password' : 'text'" placeholder="Escribe tu contraseña" formControlName="password" required>
+          <mat-error *ngIf="error.password.errors"><span *ngIf="error.password.errors.required">¡Advertencia! Este campo es requerido</span></mat-error>
+          <mat-error *ngIf="error.password.errors"><span *ngIf="error.password.errors.minlength">¡Aún falta! Recibimos mínimo 5 caracteres</span></mat-error>
+          <mat-error *ngIf="error.password.errors"><span *ngIf="error.password.errors.maxlength">¡Cuidado! Solo puedes tener un máximo de 15 caracteres</span></mat-error>
+          <a mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ?  'visibility' : 'visibility_off'}}</mat-icon>
+          </a>
+      </mat-form-field>
+      <br>
+      <br>
+      <div class="col-12 mt-3">
+          <button mat-raised-button type="submit" style="width: 100%;" color="primary" disabled='{{loginForm.invalid}}'>Ingresar</button>
+      </div>
+      <br>
+  </form>
+
+  </div>
+
+  <div class="col-4"></div>
+
+</div>
+
