@@ -13,16 +13,17 @@ import Swal from 'sweetalert2';
 })
 export class AdminComponent implements OnInit {
 
-  displayedColumns: string[] = ['accion', 'userId', 'id', 'title', 'body'];
+  displayedColumns: string[] = ['accion', 'id', 'nombre', 'descripcion', 'referencia', 'precio', 'cantidad_stock'];
   dataSource = new MatTableDataSource<any>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
+
 
   constructor(public service : AdminService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
 
-    this.getPost();
+    this.getProductos();
 
   }
 
@@ -30,16 +31,10 @@ export class AdminComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
-  /**
-   * @author Daniel Martinez
-   * @fecha 12/05/2022
-   * Metodo que se encarga de recibir los post a listar
-   */
-  getPost(){
 
-    this.service.getPosts().subscribe((resp) => {
-      this.dataSource.data = resp;
-    });
+  getProductos(){
+
+    this.dataSource.data = this.service.getProducts();
 
   }
 
@@ -48,7 +43,7 @@ export class AdminComponent implements OnInit {
    * @fecha 12/05/2022
    * Metodo que se encarga de abrir el modal de creacion o edicion de post
    */
-  form(row?:any){
+  /* form(row?:any){
 
     if(row){
 
@@ -63,7 +58,7 @@ export class AdminComponent implements OnInit {
       });
 
       dialogRef.afterClosed().subscribe(result => {
-        this.getPost();
+        //this.getPost();
       });
 
     }else{
@@ -78,12 +73,12 @@ export class AdminComponent implements OnInit {
       });
 
       dialogRef.afterClosed().subscribe(result => {
-        this.getPost();
+        //this.getPost();
       });
 
     }
 
-  }
+  } */
 
   /**
    * @author Daniel Martinez
@@ -100,7 +95,7 @@ export class AdminComponent implements OnInit {
         'success'
       )
 
-      this.getPost();
+      //this.getPost();
 
     });
 
