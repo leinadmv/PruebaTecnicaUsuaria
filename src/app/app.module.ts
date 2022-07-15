@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { JwtModule } from '@auth0/angular-jwt';
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
+    NgbModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: null,
