@@ -3,6 +3,7 @@ import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { catchError } from 'rxjs/operators';
+import { PRODUCTS } from '../librerias/products';
 
 const JSON = environment.JSON;
 
@@ -17,17 +18,8 @@ export class AdminService {
     return throwError(error);
   }
 
-  /**
-   * @author Daniel Martinez
-   * @fecha 12/05/2022
-   * Servicio get que se encarga de obtener toda la informacion de los posts
-   * @returns listado de post en un arreglo de json
-   */
-  getPosts(): Observable<any> {
-    return this.http.get<any>(`${JSON}posts`)
-      .pipe(
-        catchError(this.handleError)
-      );
+  getProducts() {
+    return PRODUCTS;
   }
 
   /**

@@ -7,6 +7,7 @@ import * as CryptoJS from 'crypto-js';
 import { USERS } from '..//librerias/users';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 
 
 const keyJwt = environment.KEYJWT;
@@ -17,7 +18,7 @@ const keyJwt = environment.KEYJWT;
 
 export class LoginService {
 
-  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService, private router: Router) { }
 
   handleError(error: HttpErrorResponse): any {
     return throwError(error);
@@ -87,6 +88,7 @@ export class LoginService {
   logOut(): boolean {
 
     localStorage.clear();
+    this.router.navigate(['/login']);
 
     return true;
   }

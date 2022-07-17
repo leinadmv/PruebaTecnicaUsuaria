@@ -7,15 +7,10 @@ table{
 }
 
 th{
-  color: white !important;
   font-weight: bold;
-  background-color: var(--primary);
   text-align: center !important;
   align-content: center !important;
   align-items: center !important;
 }
 
-:root{
-  --primary: #3f51b5;
-}
 

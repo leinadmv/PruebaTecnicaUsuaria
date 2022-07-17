@@ -24,21 +24,21 @@ export class LoginComponent implements OnInit {
   }
 
   formControl(): void {
-		this.loginForm = new FormGroup({
-			user: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.minLength(3)]),
-			password: new FormControl('', [Validators.required, Validators.maxLength(15), Validators.minLength(5)])
-		});
-	}
+    this.loginForm = new FormGroup({
+      user: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.minLength(3)]),
+      password: new FormControl('', [Validators.required, Validators.maxLength(15), Validators.minLength(5)])
+    });
+  }
 
   get error(): any {
-		return this.loginForm.controls;
-	}
+    return this.loginForm.controls;
+  }
 
-  loginAuth(loginForm){
+  loginAuth(loginForm) {
 
     const resp = this.loginService.Authentification(loginForm.value.user, loginForm.value.password);
 
-    if(!resp){
+    if (!resp) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
