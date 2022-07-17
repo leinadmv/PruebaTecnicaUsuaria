@@ -8,22 +8,22 @@
     <br>
     <div class="row">
 
-      <div class="col-5">
-        <button mat-raised-button color="primary" (click)="modal.open(wishList, {size: 'xl'})">Lista de deseos</button>
+      <div class="col-4">
+        <button mat-raised-button color="secondary" (click)="modal.open(wishList, {size: 'xl'})">Lista de deseos</button>
       </div>
-      <div class="col-7">
+      <div class="col-6">
         <h1> Catalogo de productos </h1>
       </div>
+      <div class="col-2">
+        <button mat-raised-button color="secondary" (click)="cerrarSesion()">Cerrar sesión</button>
+      </div>
+    </div>
+<br><br>
+    <div>
+      <h3>Cambio de tema</h3>
+      <mat-slide-toggle fxLayout="column" [(ngModel)]="darkMode" (click)="changeTheme(darkMode)"></mat-slide-toggle>
     </div>
 
-    <div class="row w-100 justify-content-end">
-      <div class="col-3">
-        <button class="btn btn-primary w-100" (click)="onSetTheme('light-theme')"> Thema claro</button>
-      </div>
-      <div class="col-3">
-        <button class="btn btn-secondary w-100" (click)="onSetTheme('dark-theme')"> Thema oscuro</button>
-      </div>
-    </div>
 
     <br>
     <br>
@@ -95,7 +95,7 @@
   <div class="modal-body">
     <div *ngIf="dataSourceWish.data.length == 0" class="text-center">
       <h2>
-        Actualmente no tienes 
+        Actualmente no tienes
         nada en tu lista de deseos.
       </h2>
     </div>
@@ -108,45 +108,45 @@
             <mat-icon (click)="deleteWishList(row)" class="iconoEditar">delete_outline</mat-icon>
           </td>
         </ng-container>
-  
+
         <ng-container matColumnDef="id">
           <th style="padding-left: 20px; padding-right: 20px;" mat-header-cell *matHeaderCellDef> Id </th>
           <td style="padding-left: 20px; padding-right: 20px;" mat-cell *matCellDef="let row"> {{row.id}} </td>
         </ng-container>
-  
+
         <ng-container matColumnDef="nombre">
           <th mat-header-cell *matHeaderCellDef> Nombre </th>
           <td style="padding-left: 20px; padding-right: 20px;" mat-cell *matCellDef="let row"> {{row.nombre}} </td>
         </ng-container>
-  
+
         <ng-container matColumnDef="descripcion">
           <th mat-header-cell *matHeaderCellDef> Descripcion </th>
           <td mat-cell *matCellDef="let row"> {{row.descripcion}} </td>
         </ng-container>
-  
+
         <ng-container matColumnDef="referencia">
           <th mat-header-cell *matHeaderCellDef> Referencia </th>
           <td mat-cell *matCellDef="let row"> {{row.referencia}} </td>
         </ng-container>
-  
+
         <ng-container matColumnDef="precioU">
           <th mat-header-cell *matHeaderCellDef> Precio </th>
           <td mat-cell *matCellDef="let row"> {{row.precio}} </td>
         </ng-container>
-  
+
         <ng-container matColumnDef="precioT">
           <th mat-header-cell *matHeaderCellDef> Precio total</th>
           <td mat-cell *matCellDef="let row"> {{row.total}} </td>
         </ng-container>
-  
+
         <ng-container matColumnDef="cantidad_stock">
           <th mat-header-cell *matHeaderCellDef> Cantidad a vender </th>
           <td mat-cell *matCellDef="let row"> {{row.sell_stock}} </td>
         </ng-container>
-  
+
         <tr mat-header-row *matHeaderRowDef="displayedColumnsWishList"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumnsWishList;"></tr>
-  
+
       </table>
       <mat-paginator [pageSizeOptions]="[5, 10]" showFirstLastButtons aria-label="Select page of periodic elements">
       </mat-paginator>
