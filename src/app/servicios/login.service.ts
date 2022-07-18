@@ -24,6 +24,12 @@ export class LoginService {
     return throwError(error);
   }
 
+  /**
+   * @autor Jhonathan lopez
+   * @param user usuario de la persona a loguear
+   * @param password contraseña de la persona a loguear
+   * @returns retorna un true o un false que sirve como bandera para determinar el logueo
+   */
   Authentification(user: any, password: any){
 
     let users = USERS;
@@ -42,6 +48,8 @@ export class LoginService {
     }
 
   }
+
+  // Conjunto de metodos que se encargan de realizar el encriptado y la simulacion del JWT
 
   signToken(user:any, password:any, key:string) {
     var secret = key;
@@ -85,6 +93,11 @@ export class LoginService {
     return !this.jwtHelper.isTokenExpired(token);
   }
 
+  /**
+   * @autor Jhonathan lopez
+   * Metodo que desloeguea a un usuario
+   * @returns true indicando que ya se deslogueo el usuario
+   */
   logOut(): boolean {
 
     localStorage.clear();

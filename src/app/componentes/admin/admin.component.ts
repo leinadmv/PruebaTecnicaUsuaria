@@ -45,15 +45,28 @@ export class AdminComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  /**
+   * @autor Jhonathan lopez
+   * Metodo que se encarga de controlar el modo dark del aplicativo
+   * @param modeDark variable que se encarga del cambio de tema en el local storage
+   */
   changeTheme(modeDark): void {
     localStorage.setItem('theme', modeDark ? 'light-theme' : 'dark-theme');
   }
 
+  /**
+   * @autor Jhonathan lopez
+   * Metodo que se encarga de traer la lista de productos
+   */
   getProductos() {
     this.dataSource.data = this.service.getProducts();
   }
 
-
+  /**
+   * @autor Jhonathan lopez
+   * Metodo que se encarga de agregar un producto a la lista de deseos del aplicativo
+   * @param item producto a agregar
+   */
   addWishList(item) {
 
     if (item.cantidad_stock - 1 >= 0) {
@@ -71,13 +84,13 @@ export class AdminComponent implements OnInit {
         this.dataSourceWish.data.push(item);
       }
 
-      this.service.updatePost(item.id, item).subscribe((resp) => {
+
         Swal.fire(
           'Agregado a la lista de deseo!',
           'Usted ha agregado un producto con exito!',
           'success'
         )
-      });
+
 
     } else {
       Swal.fire(
@@ -88,6 +101,11 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  /**
+   * @autor Jhonathan lopez
+   * Metodo que elimina un producto de la lista de deseos
+   * @param element producto a eliminar
+   */
   deleteWishList(element) {
     if (element.sell_stock - 1 > 0) {
       element.sell_stock -= 1;
@@ -111,6 +129,10 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  /**
+   * @autor Jhonathan lopez
+   * Metodo que se encarga de cerrar sesion
+   */
   cerrarSesion() {
     this.loginService.logOut();
   }

@@ -23,6 +23,10 @@ export class LoginComponent implements OnInit {
 
   }
 
+  /**
+   * @autor Jhonathan lopez
+   * Metodo que se encarga de crear los controles del formulario
+   */
   formControl(): void {
     this.loginForm = new FormGroup({
       user: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.minLength(3)]),
@@ -34,6 +38,11 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
+  /**
+   * @autor Jhonathan lopez
+   * Metodo que se encarga de realizar el logueo al aplicativo
+   * @param loginForm Formulario resuelto
+   */
   loginAuth(loginForm) {
 
     const resp = this.loginService.Authentification(loginForm.value.user, loginForm.value.password);
